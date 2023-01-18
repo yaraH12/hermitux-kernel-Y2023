@@ -8,9 +8,9 @@ typedef struct {
 	char *path;
     off_t length;
 	int ret;
-} _attribute_((packed)) uhyve_truncate_t;
+} __attribute__((packed)) uhyve_truncate_t;
 
-int sys_truncate(const char *path, int length) {
+int sys_truncate(const char *path, off_t length) {
 	uhyve_truncate_t arg;
 
 	arg.path = (char *)virt_to_phys((size_t)path);

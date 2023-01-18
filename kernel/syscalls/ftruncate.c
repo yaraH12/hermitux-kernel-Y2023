@@ -8,7 +8,7 @@ typedef struct {
 	int fd;
 	off_t length;
 	int ret;
-} _attribute_((packed)) uhyve_ftruncate_t;
+} __attribute__((packed)) uhyve_ftruncate_t;
 
 int sys_ftruncate(int fd, off_t length) {
 	uhyve_ftruncate_t arg;
